@@ -1,0 +1,183 @@
+# $Id$
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright 2010 NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  clamav.admin.inc: n/a
+#  clamav.inc: n/a
+#  clamav.module: n/a
+#  clamav.info: n/a
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-05-04 11:53+0100\n"
+"PO-Revision-Date: 2010-06-29 10:53-0000\n"
+"Last-Translator: \n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: clamav.admin.inc:17
+msgid "ClamAV"
+msgstr "ClamAV"
+
+#: clamav.admin.inc:20
+msgid "Enable <a href=\"http://www.clamav.net\" title=\"ClamAV\">ClamAV</a> anti-virus scans"
+msgstr "<a href=\"http://www.clamav.net\" title=\"ClamAV\">ClamAV</a>-VirenschutzScans aktivieren"
+
+#: clamav.admin.inc:25
+msgid "Select anti-virus scan method"
+msgstr "Virenschutz-Scanverfahren wählen"
+
+#: clamav.admin.inc:26
+msgid "Connect to a 'clamav-daemon' TCP socket"
+msgstr "Verbindung zu einem 'clamav-daemon' TCP-Socket herstellen"
+
+#: clamav.admin.inc:26
+msgid "Run a 'clamscan' program"
+msgstr "'clamscan'-Programm ausführen"
+
+#: clamav.admin.inc:28
+msgid "A preferable way is to use a 'clamav-daemon' since it ensures much faster performance then a 'clamscan' program. Daemon should have a read access to the web server's temporal files in order to scan them."
+msgstr "Es ist besser, 'clamav-daemon' zu verwenden, weil so höhere Geschwindigkeiten gewährleistet sind als bei einem 'clamscan'-Programm. Daemon sollte über Lesezugriff auf die temporären Dateien des Webservers verfügen, um sie zu scannen."
+
+#: clamav.admin.inc:32
+msgid "Allow file uploads if the daemon is not running or program is not found"
+msgstr "Datei-Uploads erlauben, wenn Daemon nicht ausgeführt oder das Programm nicht gefunden wird"
+
+#: clamav.admin.inc:33
+msgid "No"
+msgstr "Nein"
+
+#: clamav.admin.inc:33
+msgid "Yes"
+msgstr "Ja"
+
+#: clamav.admin.inc:35
+msgid "Choose if you want to allow file uploads when scan is enabled, but the daemon is not running or program is not found."
+msgstr "Wählen Sie, ob Sie Datei-Uploads erlauben möchten, wenn die Scan-Funktion aktiviert, aber Daemon nicht ausgeführt oder das Programm nicht gefunden wird."
+
+#: clamav.admin.inc:40
+msgid "The 'clamav-daemon' %version is found at %host:%port."
+msgstr "'clamav-daemon' %Version in %host:%port gefunden."
+
+#: clamav.admin.inc:40
+msgid "The clamav-daemon is not found at %host:%port."
+msgstr "'clamav-daemon' nicht in %host:%port gefunden."
+
+#: clamav.admin.inc:41
+msgid "ClamAV daemon"
+msgstr "ClamAV daemon"
+
+#: clamav.admin.inc:41
+msgid "These settings will be used if you have chosen \"Connect to a 'clamav-daemon' TCP socket\" above. "
+msgstr "Diese Einstellungen werden verwendet, wenn Sie weiter oben \"Verbindung zu einem 'clamav-daemon' TCP-Socket herstellen\" gewählt haben."
+
+#: clamav.admin.inc:44
+msgid "'clamav-daemon' host"
+msgstr "'clamav-daemon' Host"
+
+#: clamav.admin.inc:47
+msgid "A hostname 'clamav-daemon' is running on. For most cases it will run on the same machine as a webserver."
+msgstr "Name des Hosts, auf dem 'clamav-daemon' ausgeführt wird. In den meisten Fällen wird er auf dem gleichen Rechner wie ein Webserver ausgeführt."
+
+#: clamav.admin.inc:51
+msgid "'clamav-daemon' TCP port"
+msgstr "'clamav-daemon' TCP-Port"
+
+#: clamav.admin.inc:55
+msgid "A TCP port 'clamav-daemon' is listening to. Default port for the daemon is 3310."
+msgstr "Ein TCP-Port, den 'clamav-daemon' abhört. Standardport für den Daemon ist 3310."
+
+#: clamav.admin.inc:58
+msgid "ClamAV program"
+msgstr "ClamAV-Programm"
+
+#: clamav.admin.inc:58
+msgid "These settings will be used if you have chosen \"Run a 'clamscan' program\" above."
+msgstr "Diese Einstellungen werden verwendet, wenn Sie weiter oben \"'clamscan'-Programm ausführen\" gewählt haben."
+
+#: clamav.admin.inc:63
+msgid "The 'clamscan' %version is found at %path. If the field is left empty the default utility will be used."
+msgstr "Die 'clamscan'-%version ist in %path installiert. Ist das Feld leer, wird das Standardhilfsprogramm verwendet."
+
+#: clamav.admin.inc:63
+msgid "The 'clamscan' is not found. Please, specify the full path."
+msgstr "'clamscan' wurde nicht gefunden. Geben Sie bitte den vollständigen Pfad an."
+
+#: clamav.admin.inc:66
+msgid "A path to the scanning utility 'clamscan'"
+msgstr "Pfad zum Scan-Hilfsprogramm 'clamscan'"
+
+#: clamav.admin.inc:69
+msgid "Full path to the 'clamscan' utility."
+msgstr "Vollständiger Pfad zum 'clamscan'-Hilsprogramm."
+
+#: clamav.inc:25
+msgid "Antivirus utility is not found on the system. Please contact site administrator."
+msgstr "Auf dem System wurde kein Virenschutzprogramm gefunden. Wenden Sie sich bitte an Ihren Webseitenadministrator."
+
+#: clamav.inc:33;66
+msgid "A virus %virus has been found in the uploaded file."
+msgstr "In der hochgeladenen Datei wurde ein Virus %virus gefunden."
+
+#: clamav.inc:47
+msgid "Antivirus daemon is not running on the system. Please contact site administrator."
+msgstr "Auf dem System ist kein Virenschutz-Daemon. Wenden Sie sich bitte an Ihren Webseitenadministrator."
+
+#: clamav.inc:23;32;36;37;45;53;60;65;69;70
+#: clamav.module:67
+msgid "clamav"
+msgstr "clamav"
+
+#: clamav.inc:23
+msgid "The 'clamscan' utility is not installed at %path."
+msgstr "'clamscan'-Hilfsprogramm ist nicht in %path installiert."
+
+#: clamav.inc:32;65
+msgid "The file %file uploaded by %user contained a virus %virus and was deleted."
+msgstr "Die von %user hochgeladene Datei %file enthielt einen Virus (%virus) und wurde gelöscht."
+
+#: clamav.inc:36;69
+msgid "Clam output : !output"
+msgstr "Clam output : !output"
+
+#: clamav.inc:37;70
+msgid "The file %file uploaded by %user and scanned by ClamAV is not infected."
+msgstr "Die von %user hochgeladene und gescannte Datei %file ist nicht infiziert."
+
+#: clamav.inc:45;53
+msgid "The 'clamav-daemon' is not running at %host host %port port."
+msgstr "'clamav-daemon' wird nicht auf dem %host Host %port Port ausgeführt."
+
+#: clamav.inc:60
+msgid "The 'clamav-daemon' SCAN command failed to scan a file %file with the following error %error."
+msgstr "Der 'clamav-daemon' SCAN-Befehl konnte die Datei %file nicht scannen. Der folgende Fehler wird ausgegeben: %error."
+
+#: clamav.module:68
+msgid "There was an error scanning your file upload for viruses.  Please contact the site administrator."
+msgstr "Beim Scannen Ihres Datei-Uploads nach Viren ist ein Fehler aufgetreten. Wenden Sie sich bitte an den Webseitenadministrator."
+
+#: clamav.module:67
+msgid "Antivirus software is not running on the system."
+msgstr "Auf dem System ist kein Virenschutzprogramm."
+
+#: clamav.module:31
+msgid "Anti-virus (ClamAV)"
+msgstr "Virenschutz (ClamAV)"
+
+#: clamav.info:0
+msgid "ClamAV Anti-Virus"
+msgstr "ClamAV-Virenschutz"
+
+#: clamav.info:0
+msgid "Integration with the ClamAV virus scanner for filefield / imagefield."
+msgstr "Integration mit dem ClamAV-Virenscanner für filefield (Dateifeld) / imagefield (Bildfeld)."
+
+#: clamav.info:0
+msgid "Anti-virus"
+msgstr "Virenschutz"
+

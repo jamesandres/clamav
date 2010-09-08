@@ -1,0 +1,88 @@
+<?php
+// $Id$
+
+/**
+ * @file clamav.module
+ *  Integration with the ClamAV virus scanner for filefield / imagefield.
+ */
+
+define('CLAMAV_CLAMAV',        variable_get('clamav_clamav', 0));
+define('CLAMAV_CLAMAV_METHOD', variable_get('clamav_clamav_method', 0));
+define('CLAMAV_CLAMAV_ALLOW',  variable_get('clamav_clamav_allow', 0));
+define('CLAMAV_CLAMAV_HOST',   variable_get('clamav_clamav_host', 'localhost'));
+define('CLAMAV_CLAMAV_PORT',   variable_get('clamav_clamav_port', 3310));
+define('CLAMAV_CLAMAV_PATH',   variable_get('clamav_clamav_path', '/usr/bin/clamscan'));
+
+$clamav_path = dirname(__FILE__);
+foreach (_clamav_enabled_plugins() as $module) {
+  $plugin = $clamav_path . '/contrib/clamav.' . $module . '.inc';
+
+  if (file_exists($plugin)) {
+    include $plugin;
+  }
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function clamav_menu() {
+  return array(
+    'admin/settings/clamav' => array(
+      'title' => 'Anti-virus (ClamAV)',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('clamav_admin_settings'),
+      'access arguments' => array('administer site configuration'),
+      'file' => 'clamav.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function clamav_form_alter(&$form, $form_state, $form_id) {
+  foreach (_clamav_enabled_plugins() as $module) {
+    $delegated = 'clamav_' . $module . '_form_alter';
+
+    if (function_exists($delegated)) {
+      $delegated($form, $form_state, $form_id);
+    }
+  }
+}
+
+/**
+ * Central ClamAV scanner API.
+ *
+ * @param $file
+ *  Drupal $file object to be scanned.
+ */
+function clamav_scan($file) {
+  if (CLAMAV_CLAMAV) {
+    module_load_include('inc', 'clamav');
+
+    if ($result = clamav_scan_clamav($file)) {
+      return array(is_null($result), $result);
+    }
+    else if (isset($file->scanned) && $file->scanned === FALSE) {
+      watchdog('clamav', "Antivirus software is not running on the system.", array(), WATCHDOG_ERROR);
+      return array(FALSE, t("There was an error scanning your file upload for viruses.  Please contact the site administrator."));
+    }
+    else {
+      return array(TRUE);
+    }
+  }
+}
+
+/**
+ * Returns a list of enabled clamav module plugins.
+ */
+function _clamav_enabled_plugins() {
+  $plugins = array('filefield', 'image');
+  foreach ($plugins as $key => $module) {
+    if (!module_exists($module)) {
+      unset($plugins[$key]);
+    }
+  }
+  return $plugins;
+}
+

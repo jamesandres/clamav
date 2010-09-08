@@ -1,0 +1,5 @@
+; $Id$
+name = ClamAV Anti-Virus
+description = Integration with the ClamAV virus scanner for filefield / imagefield.
+package = Anti-virus
+core = 6.x
