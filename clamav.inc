@@ -181,11 +181,11 @@ function _clamav_scan_via_exec($filepath) {
         63 => "Can't create temporary files/directories (check permissions).",
         64 => "Can't write to temporary directory (please specify another one).",
         70 => "Can't allocate memory (calloc).",
-        71 => "Can't allocate memory (malloc).  ",
+        71 => "Can't allocate memory (malloc).",
       );
       $description = (array_key_exists($result, $descriptions)) ? $descriptions[$result] : 'unknown error';
 
-      watchdog('clamav', 'Uploaded file could not be scanned.  Clamscan reported: [@error_code] - @error_description', array('@error_code' => $result, '@error_description' => t($description)), WATCHDOG_WARNING);
+      watchdog('clamav', 'Uploaded file could not be scanned.  Clamscan reported: [@error_code] - @error_description', array('@error_code' => $result, '@error_description' => $description), WATCHDOG_WARNING);
       return CLAMAV_SCANRESULT_UNCHECKED;
   }
 }
