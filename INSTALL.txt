@@ -1,0 +1,6 @@
+Requirements:
+- The module does not provide an anti-virus scanner; it integrates with ClamAV, which is a
+  free open-source anti-virus scanner.
+- Download/install ClamAV:
+  [debian/ubuntu]: apt-get install clamav
+  [redhat/centos]: yum install clamav
